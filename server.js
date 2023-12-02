@@ -8,7 +8,7 @@ require('dotenv').config()
 const {errorHandler} = require('./middleware/errorMiddleware')
 const app = express();
 // MongoDB Configuration
-const port = process.env.PORT || 6666;
+const port =  6666;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
