@@ -15,7 +15,15 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-app.use(cors());
+const whiteList = ['https://main.d38udkoztmqkwd.amplifyapp.com', 'http://localhost:3000','http://localhost:8888']
+app.use(cors(
+{
+origin:whiteList,
+optionsSuccessStatus:200,
+credentials:true,
+}
+))
+
 
 app.use('/public', express.static('public'));
 app.use(errorHandler);
