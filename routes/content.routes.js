@@ -7,7 +7,7 @@ const {v4:uuid} = require('uuid')
 const { teacherProtected } = require('../middleware/authMiddleware')
 
 const storage = multer.diskStorage({
-     destination: (req, file, cb) => {
+     destination: (areq, file, cb) => {
           cb(null, './public')
      },
      filename: (req, file, cb) => {
@@ -15,7 +15,6 @@ const storage = multer.diskStorage({
           cb(null, uuid() + '-' + fileName)
      },
 })
-
 var upload = multer({
      storage: storage,
      fileFilter: (req, file, cb) => {
@@ -32,9 +31,6 @@ var upload = multer({
          }
      }
  });
-
-
-
 router.post('/create',teacherProtected,upload.fields([{name:"thumb", maxCount: 1},{name:"video", maxCount : 1}]), createContent )
 router.get('/allcontent',getAllContent)
 router.get('/teacherContent/:id',getAllContentById)
