@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "vercel-build":"echo hello"
+    "start": "nodemon server.js"
   },
   "author": "Presly",
   "license": "ISC",
