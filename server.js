@@ -1,5 +1,5 @@
 const express = require('express');
-const cors = require('cors');
+// const cors = require('cors');
 const bodyParser = require('body-parser');
 const { errorHandler } = require('./middleware/errorMiddleware');
 const axios = require('axios');
@@ -15,12 +15,12 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-const whiteList = ['http://localhost:3000','https://frontend-gules-tau.vercel.app'];
-app.use(cors({
-  origin: whiteList,
-  optionsSuccessStatus: 200,
-  credentials: true,
-}));
+// const whiteList = ['http://localhost:3000','https://frontend-gules-tau.vercel.app'];
+// app.use(cors({
+//   origin: whiteList,
+//   optionsSuccessStatus: 200,
+//   credentials: true,
+// }));
 
 app.use('/public', express.static('public'));
 app.use(errorHandler);
