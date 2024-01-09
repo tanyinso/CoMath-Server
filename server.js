@@ -15,13 +15,15 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-const whiteList = ['http://localhost:3000'];
+// const whiteList = ['http://localhost:3000'];
+// app.use(cors({
+//   origin: whiteList,
+//   optionsSuccessStatus: 200,
+//   credentials: true,
+// }));
 app.use(cors({
-  origin: whiteList,
-  optionsSuccessStatus: 200,
-  credentials: true,
-}));
-
+  origin:"*"
+}))
 app.use('/public', express.static('public'));
 app.use(errorHandler);
 app.use('/user', require('./routes/user.routes'));
