@@ -15,15 +15,13 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-// const whiteList = ['http://localhost:3000'];
-// app.use(cors({
-//   origin: whiteList,
-//   optionsSuccessStatus: 200,
-//   credentials: true,
-// }));
+const whiteList = ['http://localhost:3000','https://frontend-gules-tau.vercel.app'];
 app.use(cors({
-  origin:"*"
-}))
+  origin: whiteList,
+  optionsSuccessStatus: 200,
+  credentials: true,
+}));
+
 app.use('/public', express.static('public'));
 app.use(errorHandler);
 app.use('/user', require('./routes/user.routes'));
